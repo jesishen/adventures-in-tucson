@@ -6,6 +6,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Adventures in Tucson!",
   description: "A little guide, just for you.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
