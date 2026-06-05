@@ -131,7 +131,7 @@ function PlaceRow({
       <p className="text-sm" style={{ color: "var(--tennis-court)" }}>{place.address}</p>
       <p className="text-sm opacity-70" style={{ color: "var(--dark-spruce)" }}>{place.hours}</p>
       {place.notes && (
-        <p className="mt-1 text-xs italic" style={{ color: "var(--whimsical-evening)" }}>{place.notes}</p>
+        <p className="mt-1 text-xs font-serif" style={{ color: "var(--whimsical-evening)" }}>{place.notes}</p>
       )}
 
       {userNote && !editing && (
