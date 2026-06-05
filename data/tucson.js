@@ -519,7 +519,7 @@ export const places = {
       address: "Tucson, AZ 85719",
       priceRange: 1,
       notes: "super random pond I found on Google maps where people were talking about seeing turtles",
-      website: null,
+      website: "https://maps.app.goo.gl/8NEbEW34utLGoztz5",
     },
     // Phoenix
     {
