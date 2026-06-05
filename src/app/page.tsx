@@ -56,7 +56,7 @@ export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center px-6 pt-32 pb-12 text-center">
       <h1
-        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-5 max-w-xl"
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-5"
         style={{ color: "var(--dark-spruce)" }}
       >
         Adventures in Tucson!
