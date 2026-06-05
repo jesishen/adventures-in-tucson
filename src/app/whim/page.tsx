@@ -11,7 +11,7 @@ type WhimCardType = {
 function WhimCard({ card }: { card: WhimCardType }) {
   return (
     <div
-      className="p-5 sm:p-6 flex flex-col cursor-default h-full"
+      className="p-5 sm:p-6 flex flex-col cursor-default h-full justify-center"
       style={{
         backgroundImage: "url(/card-border.png)",
         backgroundSize: "100% 100%",
@@ -38,7 +38,7 @@ function WhimCard({ card }: { card: WhimCardType }) {
               className="mt-0.5 shrink-0 text-[8px]"
               style={{ color: "var(--whimsical-evening)" }}
             >
-              ◆
+              ✦
             </span>
             <span>{item}</span>
           </li>
@@ -59,13 +59,13 @@ export default function WhimPage() {
           className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight sm:leading-none tracking-tight mb-3 sm:mb-4"
           style={{ color: "var(--dark-spruce)" }}
         >
-          Feeling on a whim.
+          fill your cup
         </h1>
         <p
           className="text-sm sm:text-base leading-relaxed"
           style={{ color: "var(--tennis-court)" }}
         >
-          10 cards. Pick one. Go.
+          If you're looking for a built out bucket list, here are some! Feel free to do the entire list or only half of it. And I'll keep adding :D. Just find one that you're in the mood for and have some fun!
         </p>
       </header>
 
@@ -98,14 +98,14 @@ export default function WhimPage() {
         className="sm:hidden mt-3 text-[10px] uppercase tracking-widest text-center"
         style={{ color: "var(--whimsical-evening)", opacity: 0.5 }}
       >
-        ← swipe →
+        ← scroll through →
       </p>
 
       <footer
         className="mt-16 sm:mt-20 pt-6 text-xs text-center tracking-widest uppercase"
         style={{ borderTop: "1px solid var(--dark-spruce)", color: "var(--whimsical-evening)", opacity: 0.5 }}
       >
-        made with love ♡
+        From Jebbers ♡
       </footer>
     </main>
   );

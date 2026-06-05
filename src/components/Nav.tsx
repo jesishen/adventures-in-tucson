@@ -24,8 +24,8 @@ export default function Nav() {
 
         {/* Desktop links */}
         <div className="hidden md:flex gap-8">
-          <NavLink href="/things" label="things to do" />
-          <NavLink href="/whim" label="feeling on a whim" />
+          <NavLink href="/things" label="your arizona guide" />
+          <NavLink href="/whim" label="fill your cup" />
         </div>
 
         {/* Hamburger — mobile only */}
@@ -82,8 +82,8 @@ export default function Nav() {
           className="md:hidden flex flex-col px-5 pb-4 gap-1"
           style={{ backgroundColor: "var(--tennis-court)", borderTop: "1px solid rgba(241,206,243,0.15)" }}
         >
-          <NavLink href="/things" label="things to do" onClick={() => setOpen(false)} mobile />
-          <NavLink href="/whim" label="feeling on a whim" onClick={() => setOpen(false)} mobile />
+          <NavLink href="/things" label="your arizona guide" onClick={() => setOpen(false)} mobile />
+          <NavLink href="/whim" label="fill your cup" onClick={() => setOpen(false)} mobile />
         </div>
       )}
     </nav>

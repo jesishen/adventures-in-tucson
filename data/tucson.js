@@ -551,6 +551,16 @@ export const places = {
       notes: "world-class birding, ~50 min south — spot hummingbirds and elegant trogons",
       website: "https://www.friendsofmaderacanyon.org",
     },
+    {
+      id: "turtle-pond",
+      name: "Turtle Pond",
+      type: "turle / pond",
+      hours: "Always open",
+      address: "Tucson, AZ 85719",
+      priceRange: 1,
+      notes: "super random pond I found on Google maps",
+      website: null,
+    },
     // Phoenix
     {
       id: "phx-out-south-mountain",

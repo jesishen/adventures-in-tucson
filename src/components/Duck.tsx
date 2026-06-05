@@ -373,7 +373,7 @@ export default function Duck() {
       onMouseDown={handleMouseDown}
       onTouchStart={handleTouchStart}
       onClick={handleClick}
-      title={asleep ? "click to wake up!" : walking ? "click to stop" : "click to waddle!"}
+      title={asleep ? "click to wake up!" : walking ? "carry me!" : "click to waddle!"}
       style={{
         position: "fixed",
         left:   pos.x,

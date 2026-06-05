@@ -95,8 +95,9 @@ function PlaceRow({
       className="py-4 sm:py-5"
       style={{ borderTop: "1px solid var(--dark-spruce)" }}
     >
-      <div className="min-w-0 w-full">
-        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-1">
+      {/* Name + price on same line */}
+      <div className="flex items-baseline justify-between gap-2 mb-1">
+        <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 min-w-0">
           <span className="font-semibold tracking-tight" style={{ color: "var(--dark-spruce)" }}>
             {place.name}
           </span>
@@ -121,80 +122,75 @@ function PlaceRow({
             {place.type}
           </span>
         </div>
-        <p className="text-sm" style={{ color: "var(--tennis-court)" }}>{place.address}</p>
-        <p className="text-sm opacity-70" style={{ color: "var(--dark-spruce)" }}>{place.hours}</p>
-        {place.notes && (
-          <p className="mt-1 text-xs italic" style={{ color: "var(--whimsical-evening)" }}>{place.notes}</p>
-        )}
-
-        {/* User note display */}
-        {userNote && !editing && (
-          <p
-            className="mt-2 text-xs pl-2"
-            style={{ borderLeft: "2px solid var(--pinky-promise)", color: "var(--dark-spruce)" }}
-          >
-            {userNote}
-          </p>
-        )}
-
-        {/* Inline editor */}
-        {editing ? (
-          <div className="mt-2 flex flex-col gap-1">
-            <input
-              ref={inputRef}
-              value={draft}
-              onChange={(e) => setDraft(e.target.value.slice(0, MAX_NOTE))}
-              onKeyDown={handleKey}
-              onBlur={commit}
-              placeholder="add a note…"
-              className="w-full text-xs bg-transparent outline-none py-0.5 transition-colors"
-              style={{
-                color: "var(--dark-spruce)",
-                borderBottom: "1px solid var(--whimsical-evening)",
-              }}
-            />
-            <div className="flex items-center justify-between">
-              <span className="text-[10px]" style={{ color: "var(--whimsical-evening)", opacity: 0.6 }}>
-                ↵ save · esc cancel
-              </span>
-              <span
-                className="text-[10px] tabular-nums"
-                style={{ color: draft.length >= MAX_NOTE ? "var(--pinky-promise)" : "var(--whimsical-evening)", opacity: draft.length >= MAX_NOTE ? 1 : 0.5 }}
-              >
-                {draft.length}/{MAX_NOTE}
-              </span>
-            </div>
-          </div>
-        ) : (
-          <button
-            onClick={openEdit}
-            className="mt-1 text-[10px] uppercase tracking-widest transition-colors"
-            style={{
-              color: "var(--whimsical-evening)",
-              opacity: 0.6,
-              minHeight: 44,
-              display: "inline-flex",
-              alignItems: "center",
-              background: "none",
-              border: "none",
-              padding: 0,
-              cursor: "pointer",
-            }}
-            onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
-            onMouseLeave={e => (e.currentTarget.style.opacity = "0.6")}
-          >
-            {userNote ? "edit note" : "add a note"}
-          </button>
-        )}
-      </div>
-
-      {/* Price — inline on desktop, below content on mobile */}
-      <div className="mt-1">
-        <span className="text-xs tracking-widest" style={{ color: "var(--tennis-court)" }}>
+        <span className="text-xs tracking-widest shrink-0" style={{ color: "var(--tennis-court)" }}>
           {"$".repeat(place.priceRange)}
           <span style={{ opacity: 0.2 }}>{"$".repeat(3 - place.priceRange)}</span>
         </span>
       </div>
+
+      <p className="text-sm" style={{ color: "var(--tennis-court)" }}>{place.address}</p>
+      <p className="text-sm opacity-70" style={{ color: "var(--dark-spruce)" }}>{place.hours}</p>
+      {place.notes && (
+        <p className="mt-1 text-xs italic" style={{ color: "var(--whimsical-evening)" }}>{place.notes}</p>
+      )}
+
+      {userNote && !editing && (
+        <p
+          className="mt-2 text-xs pl-2"
+          style={{ borderLeft: "2px solid var(--pinky-promise)", color: "var(--dark-spruce)" }}
+        >
+          {userNote}
+        </p>
+      )}
+
+      {editing ? (
+        <div className="mt-2 flex flex-col gap-1">
+          <input
+            ref={inputRef}
+            value={draft}
+            onChange={(e) => setDraft(e.target.value.slice(0, MAX_NOTE))}
+            onKeyDown={handleKey}
+            onBlur={commit}
+            placeholder="add a note…"
+            className="w-full text-xs bg-transparent outline-none py-0.5 transition-colors"
+            style={{
+              color: "var(--dark-spruce)",
+              borderBottom: "1px solid var(--whimsical-evening)",
+            }}
+          />
+          <div className="flex items-center justify-between">
+            <span className="text-[10px]" style={{ color: "var(--whimsical-evening)", opacity: 0.6 }}>
+              ↵ save · esc cancel
+            </span>
+            <span
+              className="text-[10px] tabular-nums"
+              style={{ color: draft.length >= MAX_NOTE ? "var(--pinky-promise)" : "var(--whimsical-evening)", opacity: draft.length >= MAX_NOTE ? 1 : 0.5 }}
+            >
+              {draft.length}/{MAX_NOTE}
+            </span>
+          </div>
+        </div>
+      ) : (
+        <button
+          onClick={openEdit}
+          className="mt-1 text-[10px] uppercase tracking-widest transition-colors"
+          style={{
+            color: "var(--whimsical-evening)",
+            opacity: 0.6,
+            minHeight: 44,
+            display: "inline-flex",
+            alignItems: "center",
+            background: "none",
+            border: "none",
+            padding: 0,
+            cursor: "pointer",
+          }}
+          onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
+          onMouseLeave={e => (e.currentTarget.style.opacity = "0.6")}
+        >
+          {userNote ? "edit note" : "add a note"}
+        </button>
+      )}
     </div>
   );
 }
@@ -225,22 +221,20 @@ export default function ThingsPage() {
   }
 
   return (
-    <main className="max-w-2xl mx-auto px-4 sm:px-6 pb-24">
+    <main className="max-w-5xl mx-auto px-4 sm:px-6 pb-24">
       <header className="pt-20 sm:pt-28 pb-8 sm:pb-10">
         <h1
           className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight sm:leading-none tracking-tight"
           style={{ color: "var(--dark-spruce)" }}
         >
-          things to do<br />in tucson.
+          your arizona guide<br />
         </h1>
       </header>
 
-      {/* Filters */}
       <div
         className="py-3 sm:py-4 mb-2 space-y-2 sm:space-y-3"
         style={{ borderTop: "1px solid var(--dark-spruce)", borderBottom: "1px solid var(--dark-spruce)" }}
       >
-        {/* Category tabs — wrap on mobile */}
         <div className="flex flex-wrap gap-1.5 sm:gap-2">
           {CATEGORIES.map((cat) => {
             const isActive = activeCategory === cat;
@@ -299,7 +293,7 @@ export default function ThingsPage() {
         {filteredPlaces.length} {filteredPlaces.length === 1 ? "place" : "places"}
       </p>
 
-      <div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8">
         {filteredPlaces.map((place) => (
           <PlaceRow
             key={place.id}
@@ -314,7 +308,7 @@ export default function ThingsPage() {
         className="mt-20 pt-6 text-xs text-center tracking-widest uppercase"
         style={{ borderTop: "1px solid var(--dark-spruce)", color: "var(--whimsical-evening)", opacity: 0.5 }}
       >
-        made with love ♡
+        From Jebbers ♡
       </footer>
     </main>
   );

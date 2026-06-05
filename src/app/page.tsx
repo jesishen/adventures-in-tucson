@@ -54,16 +54,16 @@ function TiltCard({
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-6 pt-20 pb-12 text-center">
+    <main className="min-h-screen flex flex-col items-center justify-center px-6 pt-32 pb-12 text-center">
       <h1
         className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-5 max-w-xl"
         style={{ color: "var(--dark-spruce)" }}
       >
-        Things to do in Tucson!
+        Adventures in Tucson!
       </h1>
 
       <p
-        className="text-sm leading-relaxed mb-12 w-1/2"
+        className="text-sm leading-relaxed mb-12 w-4/5"
         style={{ color: "var(--tennis-court)", fontWeight: 400 }}
       >
         Hi Bebbers! It's Jebbers. I know you're moving soon, and I'm honestly
@@ -78,13 +78,13 @@ export default function Home() {
       <div className="flex flex-col sm:flex-row items-center sm:items-end justify-center gap-6 sm:gap-10 w-full">
         <TiltCard
           href="/things"
-          title="things to do"
+          title="your arisona guide"
           defaultDeg={-2}
           hoverDeg={-5}
         />
         <TiltCard
           href="/whim"
-          title="feeling on a whim"
+          title="fill your cup"
           defaultDeg={2}
           hoverDeg={5}
         />
