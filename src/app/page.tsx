@@ -78,7 +78,7 @@ export default function Home() {
       <div className="flex flex-col sm:flex-row items-center sm:items-end justify-center gap-6 sm:gap-10 w-full">
         <TiltCard
           href="/things"
-          title="your arisona guide"
+          title="your arizona guide"
           defaultDeg={-2}
           hoverDeg={-5}
         />
